@@ -1,9 +1,5 @@
 <template>
-    <div>
-        <div>
-           <DecoderStats />
-        </div>
-    </div>
+    <DecoderStats />
 </template>
 
 <script setup lang="ts">

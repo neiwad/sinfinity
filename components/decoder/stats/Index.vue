@@ -9,7 +9,7 @@
         <DecoderStatsItem
             class="bg-yellow-400"
             title="ROI"
-            :value="masternodes.length"
+            :value="roi + '%'"
             :loaded="masternodesLoaded"
         />
         <DecoderStatsItem class="bg-yellow-400" title="Sin Price" :value="10.4" loaded />
@@ -17,5 +17,5 @@
 </template>
 
 <script setup>
-const { masternodes, masternodesLoaded } = useMasternodes()
+const { masternodes, masternodesLoaded, roi } = useMasternodes()
 </script>
