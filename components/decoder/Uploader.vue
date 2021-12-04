@@ -7,15 +7,15 @@
 
 <script setup>
 import { ref } from "vue";
-const { file, processFile } = useHistory()
+const { file, processFile, findRewards } = useHistory()
 const { findMasternodes } = useMasternodes()
 const input = ref(null);
 const openUploader = () => {
     input.value.click();
 }
-const fileUploaded = (e) => {
+const fileUploaded = async (e) => {
     file.value = e.target.files[0];
-    processFile()
+    await processFile()
     findMasternodes()
 }
 </script>

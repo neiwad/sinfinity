@@ -4,5 +4,13 @@ import { defineNuxtConfig } from 'nuxt3'
 export default defineNuxtConfig({
     buildModules: [
         'nuxt-windicss',
+        ['@nuxtjs/fontawesome', {
+            component: 'fa',
+            suffix: true,
+            icons: {
+                solid: ['faHome']
+            }
+        }],
     ],
+
 })

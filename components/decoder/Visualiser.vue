@@ -1,7 +1,10 @@
 <template>
-    <div>{{ history }}</div>
+    <div>
+        <div>
+           <DecoderStats />
+        </div>
+    </div>
 </template>
 
 <script setup lang="ts">
-const { history } = useHistory()
 </script>
