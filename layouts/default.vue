@@ -1,7 +1,9 @@
 <template>
-    <div class="bg-dark-800 min-h-screen">
-       <main class="p-4">
+    <div class="bg-black min-h-screen">
+        <Navigation />
+        <main class="container mx-auto my-10 min-h-screen">
             <slot></slot>
-       </main>
+        </main>
+        <Footer />
     </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <canvas id="rpm_chart" responsive></canvas>
+        <canvas id="rpm_chart" ref="root" responsive></canvas>
     </div>
 </template>
 
@@ -8,9 +8,9 @@
 import Chart from 'chart.js/auto'
 import { onMounted } from "vue"
 const { masternodes } = useMasternodes()
+const root = ref(null)
 onMounted(() => {
-    const ctx = document.getElementById('rpm_chart').getContext('2d')
-
+    const ctx = root.value.getContext('2d')
     const data = {
         labels: [],
         datasets: [
