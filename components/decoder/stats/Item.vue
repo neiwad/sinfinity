@@ -11,7 +11,9 @@
 export default {
     props: {
         title: String,
-        value: Number,
+        value: {
+            type: [Number, String]
+        },
         loaded: Boolean
     }
 }

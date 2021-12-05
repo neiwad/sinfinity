@@ -1,7 +1,7 @@
 <template>
     <div>
         <input class="hidden" ref="input" type="file" accept=".csv" @change="fileUploaded" />
-        <button class="bg-blue-400" @click="openUploader">Upload</button>
+        <button class="bg-blue-400 p-4 rounded-lg" @click="openUploader">Upload</button>
     </div>
 </template>
 

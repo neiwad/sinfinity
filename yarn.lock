@@ -1504,6 +1504,11 @@ chalk@^5.0.0:
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.0.0.tgz#bd96c6bb8e02b96e08c0c3ee2a9d90e050c7b832"
   integrity sha512-/duVOqst+luxCQRKEo4bNxinsOQtMP80ZYm7mMqzuh5PociNL0PvmHFvREJ9ueYL2TxlHjBcmLCdmocx9Vg+IQ==
 
+chart.js@^3.6.1:
+  version "3.6.1"
+  resolved "https://registry.yarnpkg.com/chart.js/-/chart.js-3.6.1.tgz#edcb6584b8d810306f655f89538c00a4f440c58e"
+  integrity sha512-AycnixR0I325Fp3bqQ7wRJbkIJPwz/9IZtUBvdBWMjK5+nKCy6FZ3VejkDTtB9udePEXNt1UYoGTsNL49JoIbg==
+
 cheerio-select@^1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/cheerio-select/-/cheerio-select-1.5.0.tgz#faf3daeb31b17c5e1a9dabcee288aaf8aafa5823"

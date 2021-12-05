@@ -17,7 +17,6 @@ export const useMasternodes = () => {
         const { history } = useHistory()
         const masternodesTransactions = history.value.filter(h => h.type === 'Mined')
         const masternodesAddresses = [...new Set(masternodesTransactions.map(t => t.address))]
-        console.log(masternodesAddresses)
 
         masternodesAddresses.forEach(_address => {
             const masternodeHistory = masternodesTransactions.filter(_transaction => _transaction.address === _address)
@@ -28,7 +27,8 @@ export const useMasternodes = () => {
                 history: masternodeHistory,
                 rewards: rewards,
                 burned: 100000,
-                roi: roi
+                roi: roi,
+                color: `#${Math.floor(Math.random() * 16777215).toString(16)}`
             })
         })
         masternodesLoaded.value = true
