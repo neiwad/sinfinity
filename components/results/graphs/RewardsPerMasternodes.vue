@@ -1,13 +1,16 @@
 <template>
-    <div>
-        <canvas id="rpm_chart" ref="root" responsive></canvas>
+    <div class="flex flex-col justify-between w-full h-full">
+        <h2 class="font-bold text-4xl">Rewards by masternodes</h2>
+        <div class="w-full h-[400px] relative">
+            <canvas id="rpm_chart" ref="root" responsive></canvas>
+        </div>
     </div>
 </template>
 
 <script setup>
 import Chart from 'chart.js/auto'
 import { onMounted } from "vue"
-const { masternodes } = useMasternodes()
+const { masternodes, masternodesLoaded } = useMasternodes()
 const root = ref(null)
 onMounted(() => {
     const ctx = root.value.getContext('2d')

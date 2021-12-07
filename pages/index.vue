@@ -1,10 +1,6 @@
 <template>
-    <div class="flex">
-        <div class="flex-1">
-            <DecoderResults />
-        </div>
-        <div class="ml-6">
-            <DecoderUploader />
-        </div>
+    <div class="space-y-6 py-6">
+        <Uploader />
+        <Results />
     </div>
 </template>

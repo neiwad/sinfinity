@@ -1,7 +1,7 @@
 <template>
     <div class="space-y-4">
-        <DecoderResultsStats />
-        <DecoderResultsGraphs />
+        <ResultsStats />
+        <ResultsGraphs />
     </div>
 </template>
 

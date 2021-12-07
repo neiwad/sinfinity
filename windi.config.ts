@@ -19,15 +19,15 @@ export default defineConfig({
         plugin(({ addComponents }) => {
             const custom = {
                 '.btn': {
-                    padding: '0.5rem 1.5rem',
+                    padding: '0.5rem 2rem',
                     borderRadius: '.50rem',
                     fontWeight: '400',
                 },
                 '.btn-primary': {
-                    'backgroundColor': '#31327A',
+                    'backgroundColor': '#000000',
                     'color': '#fff',
                     '&:hover': {
-                        backgroundColor: '#31327A70',
+                        backgroundColor: '#00000080',
                     },
                 },
                 '.title-1': {
