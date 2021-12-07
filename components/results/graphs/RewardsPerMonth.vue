@@ -1,6 +1,9 @@
 <template>
-    <div>
-        <canvas id="rewards_per_month_chart" responsive></canvas>
+    <div class="flex flex-col justify-between w-full h-full">
+        <h2 class="font-bold text-4xl">Rewards by months</h2>
+        <div class="w-full h-[400px] relative">
+            <canvas id="rewards_per_month_chart" ref="root" responsive></canvas>
+        </div>
     </div>
 </template>
 
@@ -9,8 +12,9 @@ import Chart from 'chart.js/auto'
 import { onMounted } from "vue"
 const { masternodes } = useMasternodes()
 const reducer = (previousValue, currentValue) => previousValue + currentValue;
+const root = ref(null)
 onMounted(() => {
-    const ctx = document.getElementById('rewards_per_month_chart').getContext('2d')
+    const ctx = root.value.getContext('2d')
 
     const data = {
         labels: [],

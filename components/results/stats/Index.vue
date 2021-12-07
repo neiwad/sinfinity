@@ -1,18 +1,17 @@
 <template>
-    <div class="grid grid-cols-3 gap-3">
-        <DecoderStatsItem
-            class="bg-yellow-400"
+    <div class="grid grid-cols-2 gap-4">
+        <ResultsStatsItem
+            class="bg-black"
             title="Masternodes"
             :value="masternodes.length"
             :loaded="masternodesLoaded"
         />
-        <DecoderStatsItem
-            class="bg-yellow-400"
+        <ResultsStatsItem
+            class="bg-black"
             title="ROI"
             :value="roi + '%'"
             :loaded="masternodesLoaded"
         />
-        <DecoderStatsItem class="bg-yellow-400" title="Sin Price" :value="10.4" loaded />
     </div>
 </template>
 

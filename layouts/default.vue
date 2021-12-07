@@ -1,7 +1,7 @@
 <template>
-    <div class="bg-dark-800 min-h-screen">
-       <main class="p-4">
+    <div class="bg-gray-200 min-h-screen">
+        <main class="container mx-auto min-h-screen">
             <slot></slot>
-       </main>
+        </main>
     </div>
 </template>
