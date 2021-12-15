@@ -4,4 +4,8 @@ export default defineNuxtConfig({
     buildModules: [
         'nuxt-windicss',
     ],
+    nitro: {
+        preset: 'server',
+        timing: true
+    }
 })
