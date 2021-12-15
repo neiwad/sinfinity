@@ -6,6 +6,7 @@ export default defineNuxtConfig({
     ],
     nitro: {
         preset: 'server',
-        timing: true
+        timing: true,
+        
     }
 })
