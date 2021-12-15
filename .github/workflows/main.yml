@@ -48,4 +48,4 @@ jobs:
         port: ${{ secrets.SSH_DEPLOY_PORT }}
         script: |
           pm2 stop sinfinity.neiwad.dev
-          PORT=3001 pm2 start sinfinity.neiwad.dev/server/index.mjs --name 'sinfinity.neiwad.dev'
+          pm2 start sinfinity.neiwad.dev/server/index.mjs --name 'sinfinity.neiwad.dev' --port 3001
