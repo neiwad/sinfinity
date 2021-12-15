@@ -46,4 +46,6 @@ jobs:
         username: ${{ secrets.SSH_USER }}
         password: ${{ secrets.SSH_USER_PASSWORD }}
         port: ${{ secrets.SSH_DEPLOY_PORT }}
-        script: pm2 reload sinfinity.neiwad.dev
+        script: |
+          pm2 stop sinfinity.neiwad.dev
+          PORT=3001 pm2 start sinfinity.neiwad.dev/server/index.mjs --name 'sinfinity.neiwad.dev'
