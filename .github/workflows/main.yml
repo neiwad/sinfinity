@@ -3,49 +3,47 @@ name: Build & Deploy
 on:
   workflow_dispatch:
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ${{ matrix.os }}
-    
+
     strategy:
       matrix:
-        os: [ ubuntu-latest ]
-        node: [ 14 ]
-        
+        os: [ubuntu-latest]
+        node: [14]
+
     steps:
-    
-    - uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node }}
-        
-    - uses: actions/checkout@master
-    
-    - name: Install Dependencies
-      run: npm install
-    - name: Build
-      run: npm run build
-    
-    - name: Install SSH Key
-      uses: shimataro/ssh-key-action@v2
-      with:
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        known_hosts: 'just-a-placeholder-so-we-dont-get-errors'
+      - uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node }}
 
-    - name: Add Known Hosts
-      run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
-      
-    - name: Deploy to server
-      run: scp -r .output/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/sinfinity.neiwad.dev
+      - uses: actions/checkout@master
 
-    - name: Relaunch PM2 
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USER }}
-        password: ${{ secrets.SSH_USER_PASSWORD }}
-        port: ${{ secrets.SSH_DEPLOY_PORT }}
-        script: |
-          pm2 stop sinfinity.neiwad.dev
-          pm2 start sinfinity.neiwad.dev/server/index.mjs --name 'sinfinity.neiwad.dev' --port 3001
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: "just-a-placeholder-so-we-dont-get-errors"
+
+      - name: Add Known Hosts
+        run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to server
+        run: scp -r .output/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/sinfinity.neiwad.dev
+
+      - name: Relaunch PM2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_USER_PASSWORD }}
+          port: ${{ secrets.SSH_DEPLOY_PORT }}
+          script: |
+            pm2 reload neiwad.dev.config.js
