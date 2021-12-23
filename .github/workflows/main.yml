@@ -35,6 +35,17 @@ jobs:
       - name: Add Known Hosts
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
+      - name: Delete current build
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_USER_PASSWORD }}
+          port: ${{ secrets.SSH_DEPLOY_PORT }}
+          script: |
+            rm -rf sinfinity.neiwad.dev
+            mkdir sinfinity.neiwad.dev
+
       - name: Deploy to server
         run: scp -r .output/ ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/${{ secrets.SSH_USER }}/sinfinity.neiwad.dev/.output
 
