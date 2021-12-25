@@ -35,7 +35,9 @@ onMounted(() => {
   masternodes.value.forEach((_masternode, index) => {
     data.labels.push(`Node ${index}`);
     data.datasets[0].data.push(_masternode.rewards);
-    data.datasets[0].backgroundColor.push(_masternode.color);
+    data.datasets[0].backgroundColor.push(
+      _masternode.rewards < _masternode.burned ? "#FF0000" : "#00FF00"
+    );
     data.datasets[1].data.push(_masternode.burned);
   });
 
